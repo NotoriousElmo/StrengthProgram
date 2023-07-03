@@ -1,6 +1,6 @@
-import TrainingProgram.InputTaker;
-import TrainingProgram.ProgramCreator;
-import TrainingProgram.TrainingWeeks.FirstWeek;
+package TrainingProgram;
+
+import TrainingProgram.ProgramMakers.ProgramCreator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

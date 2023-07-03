@@ -1,6 +1,4 @@
-package TrainingProgram;
-
-import TrainingProgram.ProgramCreator;
+package TrainingProgram.ProgramMakers;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

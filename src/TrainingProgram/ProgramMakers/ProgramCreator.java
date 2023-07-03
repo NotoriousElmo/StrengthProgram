@@ -1,4 +1,4 @@
-package TrainingProgram;
+package TrainingProgram.ProgramMakers;
 
 import TrainingProgram.TrainingWeeks.FirstWeek;
 
@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgramCreator{
+public class ProgramCreator {
 
     public final float squatMax;
     public final float deadLiftMax;
@@ -30,8 +30,8 @@ public class ProgramCreator{
         createWeeks();
     }
 
-    public Double mRound(double number) {
-        return Math.ceil(number / 2.5) * 2.5;
+    public Double mRound(double number, double multiple) {
+        return Math.round(number / multiple) * multiple;
     }
 
     private void createWeeks() {
