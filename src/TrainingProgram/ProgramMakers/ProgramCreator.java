@@ -1,6 +1,9 @@
 package TrainingProgram.ProgramMakers;
 
 import TrainingProgram.TrainingWeeks.FirstWeek;
+import TrainingProgram.TrainingWeeks.FourthWeek;
+import TrainingProgram.TrainingWeeks.SecondWeek;
+import TrainingProgram.TrainingWeeks.ThirdWeek;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -35,6 +38,6 @@ public class ProgramCreator {
     }
 
     private void createWeeks() {
-        FirstWeek firstWeek = new FirstWeek(this);
+        FourthWeek fourthWeek = new FourthWeek(this);
     }
 }
