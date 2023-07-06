@@ -3,28 +3,22 @@ package TrainingProgram.TrainingWeeks;
 import TrainingProgram.ProgramMakers.ProgramCreator;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FirstWeek {
+
+    public List<String> firstWeek = new ArrayList<>();
 
     private final ProgramCreator programCreator;
     public FirstWeek(ProgramCreator programCreator) {
         this.programCreator = programCreator;
-        System.out.println("\n");
-        System.out.println(getNameOfWeek());
-        System.out.println("\n");
-        System.out.println(getFirstDay());
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println(getSecondDay());
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println(getThirdDay());
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println(getFourthDay());
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println(getFifthDay());
+        firstWeek.add(getNameOfWeek());
+        firstWeek.add(getFirstDay());
+        firstWeek.add(getSecondDay());
+        firstWeek.add(getThirdDay());
+        firstWeek.add(getFourthDay());
+        firstWeek.add(getFifthDay());
     }
 
     public String getNameOfWeek() {
@@ -38,18 +32,18 @@ public class FirstWeek {
     }
 
     public String getSecondDay() {
-        String spaceFirst = getSpace(programCreator.upperBackFirst.length());
-        String spaceSecond = getSpace(programCreator.shoulder.length());
-        String spaceThird = getSpace((programCreator.upperBackSecond.length()));
+        String spaceFirst = programCreator.getSpace(programCreator.upperBackFirst.length());
+        String spaceSecond = programCreator.getSpace(programCreator.shoulder.length());
+        String spaceThird = programCreator.getSpace((programCreator.upperBackSecond.length()));
         return getStringUpper(spaceFirst, spaceSecond, spaceThird,
                 programCreator.date.plusDays(1));
 
     }
 
     public String getThirdDay() {
-        String spaceFirst = getSpace(programCreator.upperBackFirst.length());
-        String spaceSecond = getSpace(programCreator.shoulder.length());
-        String spaceThird = getSpace((programCreator.upperBackSecond.length()));
+        String spaceFirst = programCreator.getSpace(programCreator.upperBackFirst.length());
+        String spaceSecond = programCreator.getSpace(programCreator.shoulder.length());
+        String spaceThird = programCreator.getSpace((programCreator.upperBackSecond.length()));
         return getStringUpper(spaceFirst, spaceSecond, spaceThird,
                 programCreator.date.plusDays(3));
     }
@@ -61,26 +55,30 @@ public class FirstWeek {
     }
 
     public String getFifthDay() {
-        String spaceFirst = getSpace(programCreator.upperBackFirst.length());
-        String spaceSecond = getSpace(programCreator.shoulder.length());
-        String spaceThird = getSpace((programCreator.upperBackSecond.length()));
+        String spaceFirst = programCreator.getSpace(programCreator.upperBackFirst.length());
+        String spaceSecond = programCreator.getSpace(programCreator.shoulder.length());
+        String spaceThird = programCreator.getSpace((programCreator.upperBackSecond.length()));
         LocalDate date = programCreator.date.plusDays(5);
+        String benchFirst = programCreator
+                .getSpace(String.valueOf(programCreator
+                        .mRound(programCreator.benchMax * 0.8, 2.5))
+                        .length() + 14);
         return "----------------------------------------------------------------------" +
                 "\n" + "|     " + date +
                 "     |Set 1      |Set 2      |Set 3      |Set 4      |" +
                 "\n" + "----------------------------------------------------------------------" +
-                "\n" + "|Bench Press         | " +
-                programCreator.mRound(programCreator.benchMax * 0.8, 2.5)
-                + " xMR  |-----------|-----------|-----------|" +
+                "\n" + "|Bench Press         |" +
+                programCreator.mRound(programCreator.benchMax * 0.8, 2.5) + benchFirst
+                + "xMR  |-----------|-----------|-----------|" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|" + programCreator.upperBackFirst + spaceFirst +
-                "|      x10  |      x10  |      x8   |      x6   |" +
+                "|      x10  |      x10  |       x8  |       x6  |" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|" + programCreator.shoulder + spaceSecond +
-                "|      x12  |      x12  |      x10  |      x8   |" +
+                "|      x12  |      x12  |      x10  |       x8  |" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|" + programCreator.upperBackSecond + spaceThird +
-                "|      x12  |      x12  |      x10  |      x8   |" +
+                "|      x12  |      x12  |      x10  |       x8  |" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|Optional Exercise 1 |    x8-12  |    x8-12  |    x8-12  |-----------|" +
                 "\n" + "----------------------------------------------------------------------" +
@@ -89,37 +87,48 @@ public class FirstWeek {
     }
 
     private String getStringUpper(String spaceFirst, String spaceSecond, String spaceThird, LocalDate date) {
+        String benchFirst = programCreator
+                .getSpace(String.valueOf(programCreator
+                        .mRound(programCreator.benchMax * 0.5, 2.5))
+                        .length() + 14);
+        String benchSecond = programCreator
+                .getSpace(String.valueOf(programCreator
+                        .mRound(programCreator.benchMax * 0.675, 2.5))
+                        .length() + 14);
+        String benchThird = programCreator
+                .getSpace(String.valueOf(programCreator
+                        .mRound(programCreator.benchMax * 0.75, 2.5))
+                        .length() + 13);
+        String benchFourth = programCreator
+                .getSpace(String.valueOf(programCreator
+                        .mRound(programCreator.benchMax * 0.775, 2.5))
+                        .length() + 13);
         return "----------------------------------------------------------------------" +
                 "\n" + "|     " + date +
                 "     |Set 1      |Set 2      |Set 3      |Set 4      |" +
                 "\n" + "----------------------------------------------------------------------" +
-                "\n" + "|Bench Press         | " +
-                programCreator.mRound(programCreator.benchMax * 0.5, 2.5)
-                + " x10  | " + programCreator.mRound(programCreator.benchMax * 0.675, 2.5) + " x10  | "
-                + programCreator.mRound(programCreator.benchMax * 0.75, 2.5) + " x8   | " +
-                programCreator.mRound(programCreator.benchMax * 0.775, 2.5) + " x6   |" +
+                "\n" + "|Bench Press         |" +
+                programCreator.mRound(programCreator.benchMax * 0.5, 2.5) + benchFirst
+                + "x10  |" + programCreator.mRound(programCreator.benchMax * 0.675, 2.5)
+                + benchSecond + "x10  |"
+                + programCreator.mRound(programCreator.benchMax * 0.75, 2.5)
+                + benchThird + "x8  |" +
+                programCreator.mRound(programCreator.benchMax * 0.775, 2.5)
+                + benchFourth + "x6  |" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|" + programCreator.upperBackFirst + spaceFirst +
-                "|      x10  |      x10  |      x8   |      x6   |" +
+                "|      x10  |      x10  |       x8  |       x6  |" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|" + programCreator.shoulder + spaceSecond +
-                "|      x12  |      x12  |      x10  |      x8   |" +
+                "|      x12  |      x12  |      x10  |       x8  |" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|" + programCreator.upperBackSecond + spaceThird +
-                "|      x12  |      x12  |      x10  |      x8   |" +
+                "|      x12  |      x12  |      x10  |       x8  |" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|Optional Exercise 1 |    x8-12  |    x8-12  |    x8-12  |-----------|" +
                 "\n" + "----------------------------------------------------------------------" +
                 "\n" + "|Optional Exercise 2 |    x8-12  |    x8-12  |    x8-12  |-----------|" +
                 "\n" + "----------------------------------------------------------------------";
-    }
-
-    private String getSpace(Integer length) {
-        StringBuilder space = new StringBuilder();
-        for (int i = 0; i < 20 - length; i++) {
-            space.append(" ");
-        }
-        return space.toString();
     }
 
     private String getStringLower(Double squat, Double deadlift, LocalDate date) {

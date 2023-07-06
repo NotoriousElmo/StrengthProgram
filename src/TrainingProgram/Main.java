@@ -14,5 +14,6 @@ public class Main {
                 205, 180, 107.5f,
                 "Barbell Row", "Military Press",
                 "Lat Pulldown", date);
+//        InputTaker inputTaker = new InputTaker();
     }
 }
